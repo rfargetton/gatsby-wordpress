@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Sarabun:300,500');
+html{
+    font-size: 62.5%;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif ;
+    font-weight: 300;
+    font-size: 1.6rem;
+    letter-spacing : 0.04em ;
+    background-color : white;
+    color : rgb(40, 40, 40);
+    padding: 0;
+    margin:0;
+}
+
+h1 {
+    font-size: 3em;
+}
+a {
+    color: rgb(40, 40, 40);
+    text-decoration: none;
+    transition: color 0.5s;
+}
+a:hover {
+    color: rgb(40, 40, 40);
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#main-header, main, footer{
+    padding: 13px 20px;
+}
+#header-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.brand{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#main-header nav ul {
+    margin : 0;
+    padding : 0;
+    display: inline-flex;
+    list-style: none;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+#main-header nav ul li {
+    margin-left : 40px;
+    align-self: center;
+}
+
+#fileList {
+    list-style: none;
+    padding: 0;
+}
+
+.file {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 10px;
+}
