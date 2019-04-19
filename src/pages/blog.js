@@ -31,7 +31,7 @@ export default class myFiles extends React.Component {
 
 export const query  = graphql`
   query {
-    allWordpressPost {
+    allWordpressPost  {
       edges {
         node {
           title
