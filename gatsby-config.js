@@ -13,15 +13,24 @@ module.exports = {
             path: `${__dirname}/src/`
         }
     },
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     {
       resolve : `gatsby-source-wordpress`,
       options : {
         baseUrl : `wp.romaricfargetton.com`,
         protocol : `https`,
         hostingWPCOM : false,
-        useACF : false
+        useACF : true
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+        defaultQuality: 75,
+      },
+    },
+    `gatsby-transformer-sharp`
   ]
 }

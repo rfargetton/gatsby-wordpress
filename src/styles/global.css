@@ -14,12 +14,22 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+  font-size: 3em;
 }
+.tag-list-container {
+  margin: 0px -5px;
+}
+.tag {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  margin: 5px;
+}
+
 a {
-    color: rgb(40, 40, 40);
-    text-decoration: none;
-    transition: color 0.5s;
+  color: rgb(40, 40, 40);
+  text-decoration: none;
+  transition: color 0.5s;
 }
 a:hover {
     color: rgb(40, 40, 40);
