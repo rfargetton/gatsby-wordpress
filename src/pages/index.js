@@ -15,7 +15,6 @@ class Home extends React.Component {
                 <main className="container">
 
                     <h1>{this.state.title}</h1>
-                    <hr></hr>
  
                 </main>
             </Layout>

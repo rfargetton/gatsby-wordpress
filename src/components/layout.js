@@ -20,7 +20,6 @@ const Layout = ({children, data}) => (
                     {children}
                     
                     <footer className="container">
-                        <hr></hr>   
                         <p>Coded by Romaric Fargetton</p>
                     </footer>
                 </div>                

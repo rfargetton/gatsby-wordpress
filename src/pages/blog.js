@@ -1,11 +1,11 @@
-import React from "react"
-import {graphql, Link} from 'gatsby'
-import Helmet from 'react-helmet'
-import Layout from "../components/layout"
-import TagList from "../components/tag-list"
-import Img from 'gatsby-image'
+import React from "react";
+import {graphql, Link} from 'gatsby';
+import Helmet from 'react-helmet';
+import Layout from "../components/layout";
+import TagList from "../components/tag-list";
+import Img from 'gatsby-image';
 
-const pageTitle = 'Blog'
+const pageTitle = 'Blog';
 
 export default class Blog extends React.Component {
 
@@ -25,23 +25,29 @@ export default class Blog extends React.Component {
 
     render(){
 
-      const posts = this.props.data.allWordpressPost.edges.slice().reverse() ;
-      const filteredArray = this.state.selectedTag === 'all' ? posts : posts.filter(({node}) => node.tags.findIndex(i => i.slug === this.state.selectedTag) >= 0 );
+      const posts = this.props.data.allWordpressPost.edges.slice().filter(({node}) => node.featured_media !== null).reverse() ;
+      const filteredPosts = this.state.selectedTag === 'all' ? posts : posts.filter(({node}) => {
+	      if (node.tags === null){
+		return false;
+	      } else {
+	      	return node.tags.findIndex(i => i.slug === this.state.selectedTag) >= 0;
+	      }
+      });
       console.log(posts);
 
       return (
             <Layout>
-                <Helmet title={pageTitle} />
+                <Helmet title={pageTitle}></Helmet>
                 <main className="container">
                     <h1>{pageTitle}</h1>
                     <TagList updateBlogList={this.updateBlogList} selectedTag={this.state.selectedTag}></TagList>
 
-                      {filteredArray.map(({node, index}) => (
-                          <div className='post' key={index}>
+                      {filteredPosts.map(({node, index}) => (
+                          <div className='post' key={node.slug}>
                               
                               <Link to={ `/${node.slug}` }>
-                                <Img resolutions={node.featured_media.localFile.childImageSharp.resize} />
-                                <h2>{node.title}</h2>
+                                <Img fixed={node.featured_media.localFile.childImageSharp.fixed} />
+                                <h2 dangerouslySetInnerHTML={{ __html : node.title}} />
                                 <div dangerouslySetInnerHTML={{ __html : node.excerpt }} />
                                 <span>{node.date} </span>                              
                               </Link>
@@ -56,7 +62,7 @@ export default class Blog extends React.Component {
 
 export const query  = graphql`
   query {
-    allWordpressPost (filter:{ categories: {elemMatch:{slug:{eq: "travaux"}}} }, sort:{fields: [date]}) {
+    allWordpressPost (filter:{ categories: {elemMatch:{id:{eq: "a693028f-d24f-5c7e-8786-25bd68950517"}}} }, sort:{fields: [date]}) {
       edges {
         node {
           title
@@ -67,8 +73,9 @@ export const query  = graphql`
           featured_media {
             localFile {
               childImageSharp {
-                resize (width: 300, height:300) {
+                fixed (width: 300, height:300) {
                   src
+		  srcSet
                   width 
                   height
                 }
@@ -77,6 +84,7 @@ export const query  = graphql`
           }
           tags {
             slug
+	    id
           }
         }
       }
