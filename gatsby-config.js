@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata : {
-      title : `Romaric Fargetton`,
-      description : 'A personal portfolio page',
+      title : `Gatsby Wordpress`,
+      description : 'A personal portfolio template for Gatsby and Wordpress.',
       author : 'Romaric Fargetton'
 
   },
