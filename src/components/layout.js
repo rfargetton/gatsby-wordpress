@@ -3,7 +3,7 @@ import Header from './header.js'
 import Helmet from 'react-helmet'
 import {graphql, StaticQuery} from 'gatsby'
 
-const Layout = ({children, data}) => (
+const Layout = ({children, data, pageTitle}) => (
     <StaticQuery 
         query = {query}
         render = {({site:{siteMetadata:{title, description}}}) => {
@@ -17,9 +17,10 @@ const Layout = ({children, data}) => (
                         <meta name='description' content={description} />
                     </Helmet>            
                     <Header title={title} />
-                    {children}
-                    
-                    <footer className="container">
+                    <main className='main_container'>
+                      {children}
+                    </main>
+                    <footer className="inner_container">
                         <p>Coded by Romaric Fargetton</p>
                     </footer>
                 </div>                

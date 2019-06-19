@@ -1,8 +1,8 @@
 import React from 'react' ;
 import Helmet from 'react-helmet';
 import {graphql} from 'gatsby';
-import Layout from '../components/layout.js' ;
-import Img from 'gatsby-image';
+import Layout from '../components/layout.js';
+import PageHead from '../components/page-head.js';
 
 export default class PostTemplate extends React.Component {
 
@@ -11,23 +11,11 @@ export default class PostTemplate extends React.Component {
     return (
       <Layout>
         <Helmet title={post.title}></Helmet>
-        <main>
-            <article>
+          <article>
             <header>
-              <div className="page_head">
-                <div className="head_background">
-                  <Img fluid={post.featured_media.localFile.childImageSharp.fluid} className="head_background-image" />
-                </div>
-                <div className="head_content">
-                  <div className="container">
-                    <h1 dangerouslySetInnerHTML={{__html : post.title }} />
-                  </div>
-                </div>
-              </div>
-              
+              <PageHead pageTitle={post.title} backgroundImage={post.featured_media.localFile.childImageSharp.fluid} /> 
             </header>
           </article>
-        </main>
       </Layout>    
     )
   }

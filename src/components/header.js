@@ -5,7 +5,7 @@ import {Link} from "gatsby"
 const Header = ({title}) => (
 
     <header id='main-header'>
-        <div id="header-container" className="container">
+        <div id="header-container" className="inner_container">
             <Link className='brand' to="/">{title}</Link>
             <nav>
                 <ul>

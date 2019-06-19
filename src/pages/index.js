@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from 'react-helmet';
 import Layout from "../components/layout";
 
 class Home extends React.Component {
@@ -13,7 +12,6 @@ class Home extends React.Component {
     render(){
         return (
             <Layout>
-                <Helmet title={this.state.title}></Helmet>
                 <main>
                   <div className="page_head">
                     <div className="head_content">

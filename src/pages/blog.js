@@ -3,6 +3,7 @@ import {graphql, Link} from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from "../components/layout";
 import TagList from "../components/tag-list";
+import PageHead from '../components/page-head.js';
 import Img from 'gatsby-image';
 
 const pageTitle = 'Blog';
@@ -26,6 +27,7 @@ export default class Blog extends React.Component {
     render(){
 
       const posts = this.props.data.allWordpressPost.edges.slice().filter(({node}) => node.featured_media !== null).reverse() ;
+
       const filteredPosts = this.state.selectedTag === 'all' ? posts : posts.filter(({node}) => {
 	      if (node.tags === null){
 		return false;
@@ -33,28 +35,26 @@ export default class Blog extends React.Component {
 	      	return node.tags.findIndex(i => i.slug === this.state.selectedTag) >= 0;
 	      }
       });
-      console.log(posts);
 
       return (
             <Layout>
-                <Helmet title={pageTitle}></Helmet>
-                <main className="container">
-                    <h1>{pageTitle}</h1>
-                    <TagList updateBlogList={this.updateBlogList} selectedTag={this.state.selectedTag}></TagList>
+              <Helmet title={pageTitle}></Helmet>
+              <PageHead pageTitle={pageTitle} />
+              <div className='inner_container'>
+                <TagList updateBlogList={this.updateBlogList} selectedTag={this.state.selectedTag}></TagList>
 
-                      {filteredPosts.map(({node, index}) => (
-                          <div className='post' key={node.slug}>
-                              
-                              <Link to={ `/${node.slug}` }>
-                                <Img fixed={node.featured_media.localFile.childImageSharp.fixed} />
-                                <h2 dangerouslySetInnerHTML={{ __html : node.title}} />
-                                <div dangerouslySetInnerHTML={{ __html : node.excerpt }} />
-                                <span>{node.date} </span>                              
-                              </Link>
-                          </div>
-                      ))}                      
- 
-                </main>
+                {filteredPosts.map(({node, index}) => (
+                    <div className='post' key={node.slug}>
+                        
+                        <Link to={ `/${node.slug}` }>
+                          <Img fixed={node.featured_media.localFile.childImageSharp.fixed} />
+                          <h2 dangerouslySetInnerHTML={{ __html : node.title}} />
+                          <div dangerouslySetInnerHTML={{ __html : node.excerpt }} />
+                          <span>{node.date} </span>                              
+                        </Link>
+                    </div>
+                ))}                      
+              </div> 
             </Layout>
         )
     }

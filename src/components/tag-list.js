@@ -1,6 +1,36 @@
 import React from "react";
-import Tag from "./tag.js";
 import {graphql, StaticQuery} from "gatsby";
+
+const active = {
+  color : "black"
+}
+const inactive = {
+  color : "gray"
+}
+
+class Tag extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.props.updateBlogList(this.props.value);
+  }
+  
+  render(){
+    return (
+      <button className="tag" 
+              type="button" 
+              style={this.props.selectedTag === this.props.value ? active : inactive} 
+              value={this.props.value} 
+              onClick={this.handleClick}>
+        {this.props.name}
+      </button>
+    )
+  }
+}
 
 const TagList = ({data, updateBlogList, selectedTag}) => (
   <StaticQuery 
