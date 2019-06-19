@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,500&display=swap');
+
+html
+  font-size: 62.5%
+
+body 
+  font-family: "Barlow", sans-serif 
+  font-weight: 300
+  font-size: 1.6rem
+  letter-spacing: 0.04em 
+  background-color: white
+  color: rgb(40, 40, 40)
+  padding: 0
+  margin: 0
+
+h1 
+  font-size: 3em
+
+.tag-list-container 
+  margin: 0px -5px
+
+.tag 
+  border-radius: 5px
+  padding: 10px
+  border: none
+  margin: 5px
+
+a 
+  color: rgb(40, 40, 40)
+  text-decoration: none
+  transition: color 0.5s
+
+a:hover 
+  color: rgb(40, 40, 40)
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 60px
+
+#header-container
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+
+.brand
+  font-size: 2rem
+  font-weight: 500
+  padding: 20px 0
+
+#main-header nav ul 
+  margin: 0
+  padding: 0
+  display: inline-flex
+  list-style: none
+  justify-content: flex-end
+  width: 100%
+  height: 100%
+
+.page_head 
+  position: relative
+  height: 400px
+  margin-top: 65px
+
+.head_background 
+  width: 100%
+  height: 100%
+  float: right
+  overflow: hidden
+
+.head_background-image 
+  margin-left: 33%
+  height: 100%
+
+.head_content 
+  position: absolute
+  bottom: 0
+  width: 100%
+  z-index: 2
+
+.head_content h1 
+  width: 40%
+
+.head_background-image::before 
+  content: ""
+  position: absolute
+  top: 0
+  bottom: 0
+  height: 100%
+  width: 200px
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))
+  z-index: 1
+
+#main-header nav ul li 
+  margin-left: 20px
+  padding: 20px 0
+  align-self: center
+
+#fileList 
+  list-style: none
+  padding: 0
+
+.file 
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  padding-bottom: 10px
+
+#main-header 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 1000
+  background-color: white
+  height: 65px
+

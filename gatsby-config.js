@@ -6,6 +6,7 @@ module.exports = {
 
   },
   plugins : [
+    `gatsby-plugin-sass`,
     {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -28,9 +29,9 @@ module.exports = {
       options: {
         useMozJpeg: false,
         stripMetadata: true,
-        defaultQuality: 75,
-      },
+        defaultQuality: 75
+      }
     },
     `gatsby-transformer-sharp`
   ]
-}
+};

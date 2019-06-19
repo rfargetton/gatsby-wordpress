@@ -1,5 +1,6 @@
-import React from "react"
-import Layout from "../components/layout"
+import React from "react";
+import Helmet from 'react-helmet';
+import Layout from "../components/layout";
 
 class Home extends React.Component {
     constructor(props){
@@ -12,10 +13,15 @@ class Home extends React.Component {
     render(){
         return (
             <Layout>
-                <main className="container">
-
-                    <h1>{this.state.title}</h1>
- 
+                <Helmet title={this.state.title}></Helmet>
+                <main>
+                  <div className="page_head">
+                    <div className="head_content">
+                      <div className="container">
+                        <h1 dangerouslySetInnerHTML={{__html : this.state.title }} />
+                      </div>
+                    </div>
+                  </div> 
                 </main>
             </Layout>
         )
