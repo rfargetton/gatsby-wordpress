@@ -1,26 +1,13 @@
-import React from "react";
-import Layout from "../components/layout";
+import React from 'react';
+import Layout from '../components/layout';
+import PageHead from '../components/page-head';
 
 class Home extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            title : "Home"
-        };
-    }
 
     render(){
         return (
             <Layout>
-                <main>
-                  <div className="page_head">
-                    <div className="head_content">
-                      <div className="container">
-                        <h1 dangerouslySetInnerHTML={{__html : this.state.title }} />
-                      </div>
-                    </div>
-                  </div> 
-                </main>
+              <PageHead pageTitle='Welcome to my Gatsby Wordpress Blog !' />
             </Layout>
         )
     }

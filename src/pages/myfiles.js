@@ -4,15 +4,13 @@ import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 import PageHead from '../components/page-head';
 
-const pageTitle = 'My Files';
-
 export default class myFiles extends React.Component {
 
     render(){
         return (
             <Layout>
-              <Helmet title={pageTitle} />
-              <PageHead pageTitle={pageTitle} />
+              <Helmet title='My Files' />
+              <PageHead pageTitle='My Files' />
               <div className='inner_container' >
                 <ul id='fileList'>
                     <li className='file' >
