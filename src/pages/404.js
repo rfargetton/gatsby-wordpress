@@ -1,22 +1,16 @@
 import React from "react"
 import Helmet from 'react-helmet'
 import Layout from "../components/layout"
-
-const pageTitle = 'Oops...'
+import PageHead from '../components/page-head';
 
 export default class myFiles extends React.Component {
 
     render(){
         return (
             <Layout>
-                <Helmet title={pageTitle} />
-                <main className="container">
-                    <h1>{pageTitle}</h1>
-                    <hr></hr>
-                    <p>There's nothing here</p>
- 
-                </main>
-            </Layout>
+              <Helmet title='404' />
+              <PageHead pageTitle={'Oops! There\'s nothing there'} />
+          </Layout>
         )
     }
 }
