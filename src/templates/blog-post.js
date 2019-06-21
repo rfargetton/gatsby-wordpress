@@ -13,7 +13,9 @@ export default class PostTemplate extends React.Component {
         <Helmet title={post.title}></Helmet>
           <article>
             <header>
-              <PageHead pageTitle={post.title} backgroundImage={post.featured_media.localFile.childImageSharp.fluid} /> 
+              <PageHead pageTitle={post.title} 
+                        alt={post.featured_media.localFile.name}
+                        backgroundImage={post.featured_media.localFile.childImageSharp.fluid} /> 
             </header>
           </article>
       </Layout>    
@@ -29,9 +31,10 @@ export const query = graphql`
       content
       featured_media {
         localFile {
+          name
           childImageSharp {
             fluid (maxWidth : 1200) {
-              ...GatsbyImageSharpFluid_noBase64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
